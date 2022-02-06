@@ -42,7 +42,7 @@ RUN cd /toolbox && \
     ln -s kibana-${KIBANA_VERSION}-linux-x86_64 kibana && \
     chown -R elasticsearch kibana-${KIBANA_VERSION}-linux-x86_64
 
-RUN cd /toolbox && git clone https://github.com/bitsofinfo/elasticsearch-gmail.git
+RUN cd /toolbox && git clone https://github.com/sebay/elasticsearch-gmail.git
 RUN cd /toolbox && git clone https://github.com/bitsofinfo/csv2es.git
 #get this intersting repo too
 RUN cd /toolbox && git clone https://github.com/cvandeplas/ELK-forensics
