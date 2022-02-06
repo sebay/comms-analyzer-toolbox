@@ -3,8 +3,14 @@ FROM centos:latest
 EXPOSE 9200
 EXPOSE 5601
 
-ENV ES_VERSION 7.2.0
-ENV KIBANA_VERSION 7.2.0
+ENV ES_VERSION 7.17.0
+ENV KIBANA_VERSION 7.17.0
+
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-* &&\
+    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-*
+
+#docker
+RUN yum upgrade -y
 
 RUN yum -y install epel-release && yum clean all
 RUN yum -y install unzip zip curl git java-1.8.0-openjdk python2 python2-pip && yum clean all
